@@ -365,9 +365,9 @@ limitations under the License.
     <visual>
       <origin xyz="0 0 ${-chassis_height / 2}"/>
       <geometry>
-        <mesh
-          filename="package://ackermann_vehicle_description/meshes/base_link.STL"/>
-        <!--box size="${chassis_length} ${chassis_width} ${chassis_height}"/-->
+        <!--mesh
+          filename="package://ackermann_vehicle_description/meshes/base_link.STL"/-->
+        <box size="${chassis_length} ${chassis_width} ${chassis_height}"/>
       </geometry>
       <material name="chassis_mat"/>
     </visual>
@@ -375,8 +375,8 @@ limitations under the License.
     <collision>
       <origin xyz="0 0 ${-chassis_height / 2}"/>
       <geometry>
-        <filename="package://ackermann_vehicle_description/meshes/base_link.STL"/>
-        <!--box size="${chassis_length} ${chassis_width} ${chassis_height}"/-->
+        <!--filename="package://ackermann_vehicle_description/meshes/base_link.STL"/-->
+        <box size="${chassis_length} ${chassis_width} ${chassis_height}"/>
       </geometry>
     </collision>
     <inertial>
@@ -393,11 +393,11 @@ limitations under the License.
         iyz="2.65723051813122E-22"
         izz="0.00338508790406167" />
     </inertial>
-    <!--xacro:solid_cuboid_inertial
+    <xacro:solid_cuboid_inertial
         width="${chassis_length}" depth="${chassis_width}"
         height="${chassis_height}" mass="${chassis_mass}">
       <origin xyz="0 0 ${-chassis_height / 2}"/>
-    </xacro:solid_cuboid_inertial-->
+    </xacro:solid_cuboid_inertial>
   </link>
   <gazebo reference="chassis">
     <material>Gazebo/Grey</material>
@@ -408,11 +408,11 @@ limitations under the License.
     <child link="chassis"/>
   </joint>
 
-  <!-- Batteries >
+  <!--Batteries-->
   <xacro:battery prefix="left" reflect="1"/>
-  <xacro:battery prefix="right" reflect="-1"/-->
+  <xacro:battery prefix="right" reflect="-1"/>
 
-  <!-- Wheels >
+  <!--Wheels-->
   <xacro:front_wheel lr_prefix="left" fr_prefix="front"
                      lr_reflect="1" fr_reflect="1"/>
   <xacro:front_wheel lr_prefix="right" fr_prefix="front"
@@ -420,7 +420,7 @@ limitations under the License.
   <xacro:rear_wheel lr_prefix="left" fr_prefix="rear"
                     lr_reflect="1" fr_reflect="-1"/>
   <xacro:rear_wheel lr_prefix="right" fr_prefix="rear"
-                    lr_reflect="-1" fr_reflect="-1"/-->
+                    lr_reflect="-1" fr_reflect="-1"/>
 
   <gazebo>
     <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so"/>

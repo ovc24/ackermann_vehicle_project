@@ -161,6 +161,7 @@ class _AckermannCtrlr(object):
         list_ctrlrs.wait_for_service()
 
         # Shock absorbers
+        
         shock_param_list = rospy.get_param("~shock_absorbers", [])
         self._shock_pubs = []
         try:
